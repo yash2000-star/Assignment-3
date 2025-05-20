@@ -62,3 +62,18 @@ $("#togglePassword").click(function(){
     passwordField.attr("type", type);
     confirmPasswordField.attr("type", type);  // Toggle confirm password field visibility
 });
+
+// Limit phone number input to 10 digits while typing
+$("#phoneno").on("input", function () {
+    let value = $(this).val();
+    // Remove all non-digit characters
+    value = value.replace(/\D/g, "");
+
+    // Limit to max 10 digits
+    if (value.length > 10) {
+        value = value.substring(0, 10);
+    }
+
+    $(this).val(value);
+});
+
